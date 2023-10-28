@@ -1,7 +1,7 @@
 <p align='center'>
 <img height='100' width='100' src='https://github.com/elliotwatt/project/blob/main/logo_transparent.png'>
 
-<h1 align='center'>
+<h1>
 Canary Quant
 </h1>
 
