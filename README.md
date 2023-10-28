@@ -12,8 +12,8 @@ Dynamic portfolio and stock analysis tools are indispensable for investors, trad
 Objectives
 </h2>
 <p>&nbsp;</p>
-- Comprehensive Analysis: Provide users with a wide range of analytical tools <br>
-- API Integration: Enable users to access real-time market data, financial news, and additional information through APIs, enhancing the software's functionality and relevance. <br>
-- Data Visualization: Utilize PyViz to create interactive and visually appealing plots that help users gain deeper insights into their portfolios and stock holdings. <br>
-- Website Integration (Long-term): Explore the feasibility of integrating the software into a website, making it more accessible and user-friendly for a wider audience. <br>
+- **Comprehensive Analysis**: Provide users with a wide range of analytical tools <br>
+- **API Integration**: Enable users to access real-time market data, financial news, and additional information through APIs, enhancing the software's functionality and relevance. <br>
+- **Data Visualization**: Utilize PyViz to create interactive and visually appealing plots that help users gain deeper insights into their portfolios and stock holdings. <br>
+- **Website Integration (Long-term)**: Explore the feasibility of integrating the software into a website, making it more accessible and user-friendly for a wider audience. <br>
 <p>&nbsp;</p>
