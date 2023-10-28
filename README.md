@@ -2,7 +2,7 @@
 <img height='100' width='100' src='https://github.com/elliotwatt/project/blob/main/canaryquantlogo.jpeg'>
 
 <h1 align='center'>
-Canary Quant
+Canary   Quant
 </h1>
 
 <h2>
