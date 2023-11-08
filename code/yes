@@ -1,0 +1,23 @@
+import pandas
+import hvplot.pandas
+
+#Calcuate Cumulative Returns
+(1+ returns).cumprod() - 1
+
+#Combined Returns
+cumulative_returns = (1 = combined_returns).cumprod() - 1
+
+# Plotting Cumlative Returns
+cumulative_returns_plot = cumulative_returns_hvplot.line(
+    Width=800
+    height=400
+    xlabel='Date'
+    ylabel='Cumulative Returns
+    title='Portfolio Cumulative Returns Over Time')
+
+#Customizing the Plot
+cumulative_returns_plot = cumulative_returns_plot.opts(legend_position='right')
+
+#Display the Plot:
+hvplot.show(cumulative_returns_plot)
+
