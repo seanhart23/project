@@ -20,4 +20,4 @@ cumulative_returns_plot = cumulative_returns_plot.opts(legend_position='right')
 
 #Display the Plot:
 hvplot.show(cumulative_returns_plot)
-
+yes
