@@ -1,19 +1,31 @@
 import numpy as np
 import pandas as pd
+import hvplot.pandas
+from datetime import datetime, timedelta
+import plotly.express as px
+import altair as alt
+from vega_datasets import data
+import pandas_datareader as web
 
 class CanaryFinancialCalculations:
 
     def __init__(self) -> None:
         pass
 
-    def cumulative_returns(df):
-        return (1 + df).cumprod()
+    def cumulative_returns(df, investment):
+        calculation = (1 + df).cumprod()
+        profit = (investment * calculation)
+        profit_df = pd.DataFrame(profit)
+        profit_df.columns = ['profit']
+        return profit_df
     
-    def covariance(df, ticker, market):
-        return df[ticker].cov(df[market])
+    def covariance(df, tickers, market):
+        covariance_rolling = df[tickers].rolling(window=21).cov(df[market])
+        return covariance_rolling
     
     def variance(df, market):
-        return df[market].var()
+        rolling_variance = df[market].rolling(window=21).var()
+        return rolling_variance
     
     def daily_drawdown(df):
         roll_max = df.cummax()
@@ -22,11 +34,18 @@ class CanaryFinancialCalculations:
         return daily_drawdown
     
     def tracking_error(df, tickers, market):
-        track_error = np.sqrt(sum([i**2 for i in df[tickers] - df[market]]))
-        return track_error
+        trackingerror_i = (df[tickers] - df[market]).rolling(window=21).std()
+        trackingerror_df = trackingerror_i.to_frame()
+        trackingerror_df = trackingerror_df.dropna()
+        trackingerror_df.columns = ['tracking error']
+        return trackingerror_df
     
     def beta(covariance, variance):
-        return covariance / variance
+        user_beta = covariance / variance
+        user_beta_df = pd.DataFrame(user_beta)
+        user_beta_df.columns = ['beta']
+        user_beta_df = user_beta_df.dropna()
+        return user_beta_df
     
     def sharpe_ratio(df):
         sharpe = (df.mean()*252) / (df.std() * np.sqrt(252))
@@ -36,6 +55,17 @@ class CanaryFinancialCalculations:
         cumulative_profit = investment * returns
         return_oi = (cumulative_profit - investment) / investment
         return(return_oi)
+    
+    def annual_return(df):
+        return (1+df)**.2-1
+    
+    def standard_deviation(df):
+        rolling_std = df.rolling(window = 21).std()
+        rolling_std_df = pd.DataFrame(rolling_std)
+        rolling_std_df = rolling_std_df.dropna()
+        return rolling_std_df
+    
+
     
 
 

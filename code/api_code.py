@@ -13,7 +13,7 @@ alpaca = tradeapi.REST(
     base_url,
     api_version="v2")
 
-tickers = ["AAPL", "TSLA"]
+tickers = ["AAPL", "TSLA", "GOOGL", "AMD", "AMC"]
 timeframe = '1Day'
 initial_investment = 10000
 
