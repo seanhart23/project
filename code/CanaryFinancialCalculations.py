@@ -69,6 +69,10 @@ class CanaryFinancialCalculations:
         compared = compared.reset_index()
         return compared
     
+    def pct_change_comparison(df, df2):
+        compare = pd.concat([df, df2], axis=1, join='inner')
+        return compare
+    
     def covariance(df, tickers, market):
         covariance_rolling = df[tickers].rolling(window=21).cov(df[market])
         return covariance_rolling
