@@ -68,6 +68,11 @@ class CanaryFinancialCalculations:
         chart = px.pie(values=weights, names=tickers, hole=.5)
         return chart
     
+    def cumulative_return_chart(df, tickers, market, date):
+        return df.hvplot.line(x=date, y=[tickers, market], value_label='Value', legend='top', height=500, width=820, xformatter='%.0f', yformatter='%.0f')
+    
+    def roi_chart(df, compare, percent):
+        return df.hvplot.bar(x=compare, y=percent, color='green', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
 
     
 
