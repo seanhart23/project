@@ -6,6 +6,8 @@ import plotly.express as px
 import altair as alt
 from vega_datasets import data
 import pandas_datareader as web
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 class CanaryFinancialCalculations:
 
@@ -64,6 +66,15 @@ class CanaryFinancialCalculations:
         rolling_std_df = rolling_std_df.dropna()
         return rolling_std_df
     
+    def rolling_correlation(df):
+        calculation = df.rolling(window=10).corr()
+        correlation_df = pd.DataFrame(calculation)
+        correlation_df = correlation_df.dropna()
+        return correlation_df
+    
+    def correlation(df):
+        return df.corr()
+    
     def portfolio_distribution_chart(tickers, weights):
         chart = px.pie(values=weights, names=tickers, hole=.5)
         return chart
@@ -73,6 +84,18 @@ class CanaryFinancialCalculations:
     
     def roi_chart(df, compare, percent):
         return df.hvplot.bar(x=compare, y=percent, color='green', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
+    
+    def correlation_scatter_chart(df):
+        sns.pairplot(df, hue='Portfolio')
+        plt.suptitle("Portfolio's Correlation To Benchmarks", y=1.02)
+        return plt.show()
+    
+    def correlation_heatmap(df):
+        plt.figure(figsize=(8,6))
+        sns.heatmap(df, annot=True, cmap='Greens', fmt='.2f', linewidths=.5)
+        plt.title('Portfolio Correlation Plot')
+        return plt.show()
+
 
     
 
