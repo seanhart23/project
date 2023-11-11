@@ -64,6 +64,13 @@ class CanaryFinancialCalculations:
         profit_df.columns = [ticker]
         return profit_df
     
+    def comparing_cumulative_returns(df, df2):
+        compared = pd.concat([df, df2], axis=1, join='inner')
+        compared.columns = ['Portfolio', 'SPY']
+        compared = compared.round()
+        compared = compared.reset_index()
+        return compared
+    
     def covariance(df, tickers, market):
         covariance_rolling = df[tickers].rolling(window=21).cov(df[market])
         return covariance_rolling
