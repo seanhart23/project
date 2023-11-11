@@ -8,6 +8,7 @@ from vega_datasets import data
 import pandas_datareader as web
 import seaborn as sns
 import matplotlib.pyplot as plt
+from bokeh.models.formatters import DatetimeTickFormatter
 
 class CanaryFinancialCalculations:
 
@@ -19,6 +20,13 @@ class CanaryFinancialCalculations:
         profit = (investment * calculation)
         profit_df = pd.DataFrame(profit)
         profit_df.columns = ['Profit']
+        return profit_df
+    
+    def cumulative_returns_benchmark(df, investment, ticker):
+        calculation = (1 + df[ticker]).cumprod()
+        profit = (investment * calculation)
+        profit_df = pd.DataFrame(profit)
+        profit_df.columns = [ticker]
         return profit_df
     
     def covariance(df, tickers, market):
@@ -52,7 +60,7 @@ class CanaryFinancialCalculations:
         return sharpe_df
     
     def return_on_investment(df, tickers, investment):
-        return ((df[tickers].iloc[-1] - investment) / investment)*100
+        return round(((df[tickers].iloc[-1] - investment) / investment)*100, 2)
         
     
     def annual_return(df, ticker):
@@ -76,17 +84,29 @@ class CanaryFinancialCalculations:
         return df.corr()
     
     def portfolio_distribution_chart(tickers, weights):
-        chart = px.pie(values=weights, names=tickers, hole=.5)
+        chart = px.pie(values=weights, names=tickers, hole=.5, color_discrete_sequence=['#008000', '#90ee90', '#ffff00', '#cccc00'])
+        chart.update_layout({
+            'plot_bgcolor': '#003300',
+            'paper_bgcolor': '#003300'
+        })
+        chart.update_layout(legend={'font': {'color': 'white'}})
         return chart
     
     def cumulative_return_chart(df, tickers, market, date):
-        return df.hvplot.line(x=date, y=[tickers, market], value_label='Value', legend='top', height=500, width=820, xformatter='%.0f', yformatter='%.0f')
+        formatter = DatetimeTickFormatter(months='%b %Y')
+        first = df.hvplot.line(x=date, y=tickers, value_label='Value', title='Portfolio Cumulative Returns vs SPY', legend='top', color='#9acd32', height=500, width=820, xformatter=formatter, yformatter='%.0f')
+        second = df.hvplot.line(x=date, y=market, value_label='Value', legend='top', color='yellow', height=500, width=820, xformatter=formatter, yformatter='%.0f')
+        overlay = first * second
+        overlay.opts(bgcolor='#003300')
+        return overlay
     
     def roi_chart(df, compare, percent):
-        return df.hvplot.bar(x=compare, y=percent, color='green', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
+        chart = df.hvplot.bar(x=compare, y=percent, color='#9acd32', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
+        chart.opts(bgcolor='#003300')
+        return chart
     
     def correlation_scatter_chart(df):
-        sns.pairplot(df, hue='Portfolio')
+        sns.pairplot(df, hue='Portfolio', palette='Greens')
         plt.suptitle("Portfolio's Correlation To Benchmarks", y=1.02)
         return plt.show()
     
@@ -95,6 +115,12 @@ class CanaryFinancialCalculations:
         sns.heatmap(df, annot=True, cmap='Greens', fmt='.2f', linewidths=.5)
         plt.title('Portfolio Correlation Plot')
         return plt.show()
+    
+    def beta_chart(df):
+        formatter = DatetimeTickFormatter(months='%b %Y')
+        chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#9acd32', legend='top', height=500, width=820, xformatter=formatter, yformatter=formatter)
+        chart.opts(bgcolor='#003300')
+        return chart
 
 
     
