@@ -101,6 +101,13 @@ class CanaryFinancialCalculations:
     
     def return_on_investment(df, tickers, investment):
         return round(((df[tickers].iloc[-1] - investment) / investment)*100, 2)
+    
+    def roi_comparison(df, df2, df3, df4, df5):
+        compared = pd.DataFrame({
+            'Compared': ['Portfolio', 'SPY', 'IGM', 'PSI', 'QQQ'],
+            'Percentage': [df, df2, df3, df4, df5]
+        })
+        return compared
         
     def annual_return(df, ticker):
         total_return = (df[ticker].iloc[-1] - df[ticker].iloc[0]) / df[ticker].iloc[0]
