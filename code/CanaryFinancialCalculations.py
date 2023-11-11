@@ -1,16 +1,14 @@
-import numpy as np
+import alpaca_trade_api as tradeapi
 import pandas as pd
+import numpy as np
+from datetime import date
 import hvplot.pandas
-from datetime import datetime, timedelta
-import plotly.express as px
-import altair as alt
-from vega_datasets import data
-import pandas_datareader as web
+import warnings
 import seaborn as sns
 import matplotlib.pyplot as plt
+from scipy.stats import pearsonr
 from bokeh.models.formatters import DatetimeTickFormatter
-
-
+import plotly.express as px
 
 class CanaryFinancialCalculations:
 
