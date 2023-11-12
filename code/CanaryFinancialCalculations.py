@@ -19,6 +19,7 @@ class CanaryFinancialCalculations:
         df = alpaca.get_bars(
             tickers,
             timeframe,
+            adjustment='all',
             start=start,
             end=end
         ).df
