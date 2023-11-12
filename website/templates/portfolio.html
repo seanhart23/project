@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script>
+        const pieChartDataUrl = "{{ url_for('get_piechart_data') }}";
+        const closingChartDataUrl = "{{ url_for('get_closing_data') }}";
+        const cumulativeReturnsChartUrl = "{{ url_for('get_cumulative_returns_data') }}";
+        const rollingBetaChartUrl = "{{ url_for('get_rolling_beta_data') }}";
+        const roiChartUrl = "{{ url_for('get_portfolio_roi_data') }}";
+        const heatmapChartUrl = "{{ url_for('get_correlation_heatmap_data') }}";
+
+    </script>
+    <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/closingChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/updateClosingChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cumulativeReturnsChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rollingBetaChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/roiChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/heatmapChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Data Dashboard">
+   <meta name="author" content="Aboze Brain">
+   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ </head>
+
+<div class="page-loader">
+  <div class="spinner"></div>
+  <div class="txt">Loading...</div>
+</div>
+ 
+ <center style="background-color: rgb(241, 240, 238)">
+ <body>
+       <div>
+         <h1 style="color: rgb(22, 87, 22)">Data Dashboard </h1>
+         <h2 style="color: green">Project: Interactive charts for Portfolio Visualization</h2>
+       </div>
+       <div class="visualization">
+        <div id="pieChart"></div>
+        <div id="closingChart"></div>
+        <div id="cumulativeReturnsChart"></div>
+        <div id="rollingBetaChart"></div>
+        <div id="barChart"></div>
+        <div id="heatmapChart"></div>
+      </div>
+ </body>
+</center>
+</html>
