@@ -139,27 +139,34 @@ class CanaryFinancialCalculations:
         return round(df.corr(), 2)
     
     def portfolio_distribution_chart(tickers, weights):
-        chart = px.pie(values=weights, names=tickers, hole=.5, color_discrete_sequence=['#289c40', '#a5e06c', '#0e5b45', '#1d9371'])
+        chart = px.pie(values=weights, title='Portfolio Distribution', names=tickers, hole=.5, 
+                       color_discrete_sequence=['#289c40', '#a5e06c', '#0e5b45', '#1d9371'])
         chart.update_layout({
             'plot_bgcolor': '#00221c',
             'paper_bgcolor': '#00221c'
         })
         chart.update_layout(legend={'font': {'color': 'white'}})
+        chart.update_layout(title={'font': {'color': 'white'}})
+        chart.update_layout(title_x=0.487)
+        chart.update_layout(width=500)
         return chart
     
     def cumulative_return_chart(df, tickers, market, date):
         formatter = DatetimeTickFormatter(months='%b %Y')
-        first = df.hvplot.line(x=date, y=tickers, value_label='Value', title='Portfolio Cumulative Returns vs SPY', 
-                               legend='top', color='#289c40', height=500, width=820, xformatter=formatter, yformatter='%.0f')
-        second = df.hvplot.line(x=date, y=market, value_label='Value', legend='top', color='#a5e06c', height=500, 
+        first = df.hvplot.line(x=date, y=tickers, title='Portfolio Cumulative Returns vs SPY', 
+                               color='#289c40', height=500, width=820, xformatter=formatter, yformatter='%.0f')
+        second = df.hvplot.line(x=date, y=market, color='#a5e06c', height=500, 
                                 width=820, xformatter=formatter, yformatter='%.0f')
         overlay = first * second
+        overlay.opts(ylabel='Value')
         overlay.opts(bgcolor='#00221c')
+        overlay.opts(hooks=[lambda p, _: p.state.update(border_fill_color='#1d9371')])
         return overlay
     
     def roi_chart(df, compare, percent):
         chart = df.hvplot.bar(x=compare, y=percent, color='#289c40', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
         chart.opts(bgcolor='#00221c')
+        chart.opts(hooks=[lambda p, _: p.state.update(border_fill_color='#1d9371')])
         return chart
     
     def correlation_scatter_chart(df):
@@ -177,6 +184,7 @@ class CanaryFinancialCalculations:
         formatter = DatetimeTickFormatter(months='%b %Y')
         chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#289c40', legend='top', height=500, width=820, xformatter=formatter, )
         chart.opts(bgcolor='#00221c')
+        chart.opts(hooks=[lambda p, _: p.state.update(border_fill_color='#1d9371')])
         return chart
 
 
