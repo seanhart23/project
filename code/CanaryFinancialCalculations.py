@@ -88,6 +88,9 @@ class CanaryFinancialCalculations:
         user_beta_df = user_beta_df.dropna()
         return user_beta_df
     
+    def avg_beta(df):
+        return round(df.mean(),2)
+    
     def daily_drawdown(df):
         roll_max = df.cummax()
         roll_min = df.cummin()
@@ -99,9 +102,7 @@ class CanaryFinancialCalculations:
     
     def sharpe_ratio(df):
         sharpe = round((df.mean()*252) / (df.std() * np.sqrt(252)), 2)
-        sharpe_df = pd.DataFrame(sharpe)
-        sharpe_df.columns = ['Sharpe Ratio']
-        return sharpe_df
+        return sharpe
     
     def return_on_investment(df, tickers, investment):
         return round(((df[tickers].iloc[-1] - investment) / investment)*100, 2)
@@ -126,8 +127,6 @@ class CanaryFinancialCalculations:
     
     def standard_deviation_mean(df):
         df = round(df.mean(), 2)
-        df = pd.DataFrame(df)
-        df.columns = ['Average Standard Deviation']
         return df
     
     def rolling_correlation(df):
@@ -150,8 +149,10 @@ class CanaryFinancialCalculations:
     
     def cumulative_return_chart(df, tickers, market, date):
         formatter = DatetimeTickFormatter(months='%b %Y')
-        first = df.hvplot.line(x=date, y=tickers, value_label='Value', title='Portfolio Cumulative Returns vs SPY', legend='top', color='#289c40', height=500, width=820, xformatter=formatter, yformatter='%.0f')
-        second = df.hvplot.line(x=date, y=market, value_label='Value', legend='top', color='#a5e06c', height=500, width=820, xformatter=formatter, yformatter='%.0f')
+        first = df.hvplot.line(x=date, y=tickers, value_label='Value', title='Portfolio Cumulative Returns vs SPY', 
+                               legend='top', color='#289c40', height=500, width=820, xformatter=formatter, yformatter='%.0f')
+        second = df.hvplot.line(x=date, y=market, value_label='Value', legend='top', color='#a5e06c', height=500, 
+                                width=820, xformatter=formatter, yformatter='%.0f')
         overlay = first * second
         overlay.opts(bgcolor='#00221c')
         return overlay
@@ -174,7 +175,7 @@ class CanaryFinancialCalculations:
     
     def beta_chart(df):
         formatter = DatetimeTickFormatter(months='%b %Y')
-        chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#289c40', legend='top', height=500, width=820, xformatter=formatter, yformatter=formatter)
+        chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#289c40', legend='top', height=500, width=820, xformatter=formatter, )
         chart.opts(bgcolor='#00221c')
         return chart
 
