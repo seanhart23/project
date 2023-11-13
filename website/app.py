@@ -4,12 +4,15 @@ import pandas as pd
 import numpy as np
 from alpaca import Alpaca
 from utilities import data_creation, create_d3_line_data, create_d3_beta_data, create_d3_bar_data
+from CanaryFinancialCalculations import CanaryFinancialCalculations
+from datetime import date, timedelta
 
 a = Alpaca()
 BENCHMARK_PORTFOLIOS = ['IGM', 'PSI', 'QQQ', 'SPY']
 ALL_PORTFOLIOS = ['Your Portfolio'] + BENCHMARK_PORTFOLIOS
 INITIAL_INVESTMENT = 10000
-
+TIME = 365*5 # all portfolio calculations will start 5 years back from the time the user inputs stock data
+TIMEFRAME = '1D' # all stock data from alpaca api will show a single datapoint for 1 day
 
 @app.route('/', methods = ["GET", "POST"])
 def hello_world():
@@ -20,8 +23,37 @@ def hello_world():
        # parsing stocks input
        global stocks_portfolio
        stocks_portfolio = [x.strip() for x in stocks_input.split(',')] 
+       
+       start_date = pd.Timestamp(date.today() - timedelta(days = TIME), tz="America/New_York").isoformat()
+       end_date = pd.Timestamp(date.today().isoformat(), tz="America/New_York").isoformat()
 
-       return render_template("portfolio.html")
+       global canary 
+       # initialize the canary with the user's pick of stocks, start and end times of the investment period, and the initial investment amount
+       canary = CanaryFinancialCalculations(stocks_portfolio, start_date, end_date, INITIAL_INVESTMENT)
+
+       user_roi = CanaryFinancialCalculations.return_on_investment(canary.user_cumulative_returns, 'Profit', INITIAL_INVESTMENT)
+       user_annual_returns = CanaryFinancialCalculations.annual_return(CanaryFinancialCalculations.weighted_df(canary.user_portfolio_df, canary.weights), 'Portfolio')
+       user_sharpe_ratio = CanaryFinancialCalculations.sharpe_ratio(canary.user_portfolio_pct_chg)[0]
+
+       # calculate average beta
+       user_covariance = CanaryFinancialCalculations.covariance(canary.comparing_portfolios_pct_chg, "Portfolio", "SPY")
+       user_variance = CanaryFinancialCalculations.variance(canary.comparing_portfolios_pct_chg, "SPY")
+       user_avg_beta =  round(CanaryFinancialCalculations.beta(user_covariance, user_variance).mean(),2)
+
+       # Calculate ave std
+       user_std = round(CanaryFinancialCalculations.standard_deviation(canary.user_portfolio_pct_chg).mean(),2)[0]
+
+       # calculate tracking error
+       benchmark_annual_returns = CanaryFinancialCalculations.annual_return(canary.benchmark_df, 'SPY')
+       tracking_error = round(user_annual_returns-benchmark_annual_returns,2)
+       
+       return render_template("portfolio.html", roi=user_roi,
+                               annual_return = user_annual_returns,
+                                 sharpe_ratio = user_sharpe_ratio, 
+                                 avg_beta = user_avg_beta, 
+                                 std = user_std,
+                                 tracking_err = tracking_error
+                                 )
     return render_template("form.html")
     
 @app.route('/get_piechart_data')
