@@ -11,20 +11,20 @@ function d3CumulativeReturnsChart(dataset){
 
     // set the dimensions and margins of the graph
     const margin = {top: 50, right: 30, bottom: 60, left: 65};
-    let width = 460 - margin.left - margin.right;
-    let height = 400 - margin.top - margin.bottom;
+    let width = 800 - margin.left - margin.right;
+    let height = 500 - margin.top - margin.bottom;
 
-    custom_dataset = get_grouped_data('custom', dataset);
+    custom_dataset = get_grouped_data('Your Portfolio', dataset);
     spy_dataset = get_grouped_data('SPY', dataset);
 
     // append the svg object to the body of the page
-    const svg = d3.select("#cumulativeReturnsChart")
+    const svgContainer = d3.select("#cumulativeReturnsChart")
     .append("svg")      //Injecting an SVG element
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")        //Grouping the various SVG components  
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+    .style("background-color", "#a5e06c")
+    const svg = svgContainer.append("g")        //Grouping the various SVG components  
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var dates = [];
@@ -80,7 +80,7 @@ function d3CumulativeReturnsChart(dataset){
      .datum(spy_dataset)
      .attr("class", "line")
      .attr("fill", "none")
-     .attr("stroke", "#a5e06c")
+     .attr("stroke", "#0e5b45")
      .attr("stroke-width", 2.5)
      .attr("d", line);
 
@@ -95,8 +95,8 @@ function d3CumulativeReturnsChart(dataset){
 
     // Handmade legend
     svg.append("circle").attr("cx",110).attr("cy",30).attr("r", 6).style("fill", "#289c40")
-    svg.append("circle").attr("cx",110).attr("cy",60).attr("r", 6).style("fill", "#a5e06c")
-    svg.append("text").attr("x", 130).attr("y", 30).text("custom").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",110).attr("cy",60).attr("r", 6).style("fill", "#0e5b45")
+    svg.append("text").attr("x", 130).attr("y", 30).text("Your Portfolio").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 130).attr("y", 60).text("SPY").style("font-size", "15px").attr("alignment-baseline","middle")
 
  }

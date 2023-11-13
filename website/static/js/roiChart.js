@@ -1,7 +1,7 @@
 //Set up SVG dimensions and properties
 const margin = {top: 10, right: 10, bottom: 40, left: 70},
-width = 350 - margin.left - margin.right,
-height = 350 - margin.top - margin.bottom,
+width = 800 - margin.left - margin.right,
+height = 500 - margin.top - margin.bottom,
 barPadding = 10,
 graph_misc = {ylabel: 4, xlabelH : 5, title:9};
 
@@ -34,6 +34,7 @@ function d3RoiChart(datasetBarChart){
        .append('svg')
        .attr('width', width + margin.left + margin.right)
        .attr('height', height + margin.top + margin.bottom)
+       .style("background-color", "#a5e06c")
        .attr('id', 'barChartPlot');
 
     bar.append("text")
@@ -97,3 +98,5 @@ function d3RoiChart(datasetBarChart){
        .attr("y", 15)
        .attr("class", "xAxis");           
 }
+
+

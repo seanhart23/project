@@ -12,8 +12,8 @@ function updateClosingChart(group, color, datasetClosingChart){
 
     const svg = d3.select("#closingChart svg")
     const margin = {top: 50, right: 30, bottom: 60, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
     let graph_misc = {ylabel: 4, xlabelH : 5, title:9};
 
 

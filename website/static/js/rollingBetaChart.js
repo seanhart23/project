@@ -11,19 +11,19 @@ function d3RollingBetaChart(dataset){
     };
     // set the dimensions and margins of the graph
     const margin = {top: 50, right: 30, bottom: 60, left: 60};
-    let width = 460 - margin.left - margin.right;
-    let height = 400 - margin.top - margin.bottom;
+    let width = 800 - margin.left - margin.right;
+    let height = 500 - margin.top - margin.bottom;
 
     dataset = get_grouped_data('Beta', dataset);
 
     // append the svg object to the body of the page
-    const svg = d3.select("#rollingBetaChart")
+    const svgContainer = d3.select("#rollingBetaChart")
     .append("svg")      //Injecting an SVG element
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")        //Grouping the various SVG components  
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+    .style("background-color", "#a5e06c")
+    const svg = svgContainer.append("g")        //Grouping the various SVG components  
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var dates = [];
@@ -49,7 +49,7 @@ function d3RollingBetaChart(dataset){
 
     // Add Y axis
     var yScale = d3.scaleLinear()
-    .domain([2 * d3.min(dataset, function(d) { return d.value; }), 1.5*d3.max(dataset, function(d) { return +d.value; })])
+    .domain([2 * d3.min(dataset, function(d) { return d.value; }) - 0.5, 1.5*d3.max(dataset, function(d) { return +d.value; })])
     .range([ height, 0 ]);
     svg.append("g")
     .attr("class","myYaxis")

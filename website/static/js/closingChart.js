@@ -2,8 +2,8 @@
 function d3ClosingChart(dataset){
     // set the dimensions and margins of the graph
     const margin = {top: 50, right: 30, bottom: 60, left: 65},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
     function get_grouped_data(group, dataset){
         const _ = [];
@@ -17,14 +17,14 @@ function d3ClosingChart(dataset){
     default_stock = dataset[0]['stocks'][0]   
     dataset = get_grouped_data(default_stock, dataset)
 
-    const svg = d3.select("#closingChart")
+    const svgContainer = d3.select("#closingChart")
     .append("svg")      //Injecting an SVG element
     .data([dataset])    //Binding the pie chart data
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")        //Grouping the various SVG components  
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+    .style("background-color", "#a5e06c")
+    const svg = svgContainer.append("g")        //Grouping the various SVG components  
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var dates = [];

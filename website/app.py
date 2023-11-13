@@ -7,7 +7,7 @@ from utilities import data_creation, create_d3_line_data, create_d3_beta_data, c
 
 a = Alpaca()
 BENCHMARK_PORTFOLIOS = ['IGM', 'PSI', 'QQQ', 'SPY']
-ALL_PORTFOLIOS = ['custom'] + BENCHMARK_PORTFOLIOS
+ALL_PORTFOLIOS = ['Your Portfolio'] + BENCHMARK_PORTFOLIOS
 INITIAL_INVESTMENT = 10000
 
 
@@ -61,10 +61,10 @@ def get_rolling_beta_data():
     market_data_daily_returns = a.get_daily_returns(market_data)
 
     daily_returns = pd.concat([custom_daily_returns, market_data_daily_returns], join='inner', axis=1)
-    daily_returns.columns = ['custom', 'SPY']
+    daily_returns.columns = ['Your Portfolio', 'SPY']
     
    # get covariance, variance, beta
-    rolling_covariance = daily_returns['custom'].rolling(window=21).cov(daily_returns['SPY'])
+    rolling_covariance = daily_returns['Your Portfolio'].rolling(window=21).cov(daily_returns['SPY'])
     rolling_variance = daily_returns['SPY'].rolling(window=21).var()
     rolling_beta = rolling_covariance / rolling_variance
 

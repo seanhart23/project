@@ -5,20 +5,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
+<body style="background-color: #1d9371;"></body>
+
 <div class="image-container" style="text-align: center;">
-<img src="https://lh3.googleusercontent.com/pw/ADCreHeSJ0YTBO0HRJ2TlDc6zYFfb70hIrNXzP4QEQ3CvD405OEgq_QfE-7DOi3ME3G7_OT1dJcasVFiSmaIXnBt1U7Ex9dSEK5Lbt2dvdqcRxDskHwhIN4H6WXTjeSYPk-ix71nRKjc6IgIAejkHZ25JJavt4YyTJKmP3NgtsgdyLTTikh2UNEeAWXJb45vtAJx8JJ35o3iMiyk16wZ7t3NlfXKYliPY4VSHsUCg7QWRZyfeuC5XkevxUJJeze6MB0w__8tENP5Dl7Ye6U5sabPeulBXPkJMaRNKupMTjFmrXO5lGPTZRtZDNz3xp60zbt_mg5akbHr2nm_5nxykqAW42UAilvkKtdjGmoAju5RNIn8k9DUZC3uzbnzgw4JVJFlsCDnNMaUNQJEruw4wUdFUNcDUxfawBlEO19hlNpDvH8L9rbNo13MUz4uuBJJa71G1UJKUuSBXRhCJkNJuZhzd8QzLBORRjYKdlS54UMIxaNdR5AAejuacU0nIyWinzaJ1NLSMOrFU1QMSqgxNwyxuKY8NcuOhwT5cWrkgf6Fe2oKsGGcpt3JMxRKL0mE9xjfqysbo3jKTbE_VC4vv_kKZBxdna9T9g-bjW5AaeCSdYsf3YPKfsd-G9_HgwAeGLk1qFJbrwHg5WKlDe2tVP8fS8J5E5SF_C_wqcAQHI9LCzzeRWliYstIsN-E6YkW0YL9YeDIkDJQXinNWYOqxnCKC0K0uatwmEgOIHixpdl1hygQfUza7IJa6AL1moaTjcKPl29-00pmmuVsP3J0ypOzWCaSQ-noDN0UJq9i13czS3B-T7P3bYVfLzV9DuyEQ3qk5eahTXkzbIIxiP7fW-H6PfQtKaOgK4aEdfqSAOPuGQHbc18hncE-mINMRawQJ1-1Z-86c8hcfhlHufxgSe9Htw=w2848-h1602-s-no-gm?authuser=0" class="center"/>
+<img height="350" width="500" src="{{ url_for('static', filename='images/yessir.jpg') }}" class="center"/>
 </div>
 
 <header>
 <div style="text-align: center;">
-<h1>Discover the power of your investment</h1>
-<h2>Create a portfolio</h2>
+<h1>Discover the Power of your Investment</h1>
+<h2>Create a Portfolio</h2>
 </div>
 </header>
 
 <div style="text-align: center;">
 <form action="{{ url_for("hello_world")}}" method="post">
     <p><label for="stocks">What stocks do you want in your portfolio?</label></p>
-    <p><input type="text" id="stocks" name="stockname" placeholder="AZO, NFLX, AMD, BKNG"></p>
+    <p><input type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL"></p>
     <p><button type="submit">Create</button></p>
 </div>
+</body>

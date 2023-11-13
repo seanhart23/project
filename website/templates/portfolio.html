@@ -9,6 +9,7 @@
         const rollingBetaChartUrl = "{{ url_for('get_rolling_beta_data') }}";
         const roiChartUrl = "{{ url_for('get_portfolio_roi_data') }}";
         const heatmapChartUrl = "{{ url_for('get_correlation_heatmap_data') }}";
+        
 
     </script>
     <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
@@ -19,6 +20,7 @@
     <script src="{{ url_for('static', filename='js/roiChart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/heatmapChart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/roiResult.js') }}"></script>
 
  <head>
    <meta charset="utf-8">
@@ -27,24 +29,25 @@
    <meta name="author" content="Aboze Brain">
    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
  </head>
-
-<div class="page-loader">
-  <div class="spinner"></div>
-  <div class="txt">Loading...</div>
-</div>
  
- <center style="background-color: rgb(241, 240, 238)">
+ <center style="background-color: #1d9371">
  <body>
        <div>
-         <h1 style="color: rgb(22, 87, 22)">Data Dashboard </h1>
-         <h2 style="color: green">Project: Interactive charts for Portfolio Visualization</h2>
+         <h1 style="color: white">Canary Quant</h1>
+         <h2 style="color: white">Financial Metrics</h2>
+         <p style="color: white">Return on Investment = %</p>
        </div>
        <div class="visualization">
         <div id="pieChart"></div>
+        <p>&nbsp;</p>
         <div id="closingChart"></div>
+        <p>&nbsp;</p>
         <div id="cumulativeReturnsChart"></div>
+        <p>&nbsp;</p>
         <div id="rollingBetaChart"></div>
+        <p>&nbsp;</p>
         <div id="barChart"></div>
+        <p>&nbsp;</p>
         <div id="heatmapChart"></div>
       </div>
  </body>

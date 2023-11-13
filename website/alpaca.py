@@ -8,12 +8,12 @@ from datetime import date,timedelta
 class Alpaca:
     def __init__(self) -> None:
         # load environment variables
-        load_dotenv()
+        
 
          # Set Alpaca API key and secret
         ALPACA_BASE_URL = 'https://paper-api.alpaca.markets'
-        ALPACA_API_KEY = os.environ.get('ALPACA_API_KEY')
-        ALPACA_SECRET_KEY = os.environ.get('ALPACA_SECRET_KEY')
+        ALPACA_API_KEY = 'PK306FA7SFOSMY9LBUZ4'
+        ALPACA_SECRET_KEY = 'oNujbWMi3ZLrZuVggRN1DnZBLs38EJO00cwyOgsE'
 
         # Create the Alpaca API object
         self.api = tradeapi.REST(key_id=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY, base_url=ALPACA_BASE_URL, api_version='v2')
@@ -59,7 +59,7 @@ class Alpaca:
         custom_portfolio_closing = self.get_closing_data(days_from_today=days_from_today, tickers=stocks_portfolio)
         weights = (1/len(stocks_portfolio) * np.ones(len(stocks_portfolio))).tolist()
         custom_cumulative_returns = self.get_cumulative_returns(custom_portfolio_closing, investment, weights)  
-        custom_cumulative_returns.columns = ['custom']     
+        custom_cumulative_returns.columns = ['Your Portfolio']     
 
         benchmark_portfolios = ['IGM', 'PSI', 'QQQ', 'SPY']
         # get closing data of the benchmarks
@@ -68,7 +68,7 @@ class Alpaca:
     
         # join the custom portfolios and benchmark portfolios
         all_portfolios_df = pd.concat([custom_cumulative_returns, benchmark_cumulative_returns], join='inner', axis=1)
-        all_portfolios_df.columns = ['custom'] + benchmark_portfolios
+        all_portfolios_df.columns = ['Your Portfolio'] + benchmark_portfolios
 
         return all_portfolios_df
     
@@ -79,6 +79,13 @@ class Alpaca:
         daily_returns.dropna(inplace=True)
 
         return daily_returns
+    
+
+
+    
+ 
+        
+
 
 
 

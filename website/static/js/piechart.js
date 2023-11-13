@@ -4,10 +4,10 @@ function d3PieChart(dataset, datasetClosingChart){
     const width = 350 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom,
     outerRadius = Math.min(width, height) / 2,
-    innerRadius = outerRadius * .5,
-    color = d3.scaleOrdinal(d3.schemeAccent); //color scheme
-    console.log('asdfsdfja;lksdjfal;ksdjf;alksdjf;lakjdfak;jsflda');
-    console.log(dataset);
+    innerRadius = outerRadius * .5;
+    const color = d3.scaleOrdinal()
+        .domain(d3.range(dataset.length))
+        .range(['#289c40', '#a5e06c', '#0e5b45', '#00221c']);
  
     // Selecting the div with id pieChart on the index.html template file
     const visualization = d3.select('#pieChart')
@@ -58,12 +58,14 @@ function d3PieChart(dataset, datasetClosingChart){
         .attr("dy", "0.20em")      //shift along the y-axis on the position of text content
         .attr("text-anchor", "middle")      //Position slice labels
         .attr("transform", function(d) { return "translate(" + innerArc.centroid(d) + ")"; }) //Positioning upon transition and transform
+        .attr("fill", "white")
         .text(function(d) { return d.data.category; }); // Append category name on slices
  
     visualization.append("svg:text") //Append the title of chart in the middle of the pie chart
         .attr("dy", ".20em")
         .attr("text-anchor", "middle")
         .text("Your custom portfolio")
+        .attr("fill", "white")
         .attr("class","title");   
  
     // Function to update barchart when a piechart slice is clicked

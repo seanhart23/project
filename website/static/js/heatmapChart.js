@@ -2,17 +2,17 @@ function d3HeatmapChart(dataset){
 
     // set the dimensions and margins of the graph
     var margin = {top: 80, right: 25, bottom: 30, left: 80},
-    width = 450 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    var svg = d3.select("#heatmapChart")
+    var svgContainer = d3.select("#heatmapChart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+    .style("background-color", "#a5e06c")
+    var svg = svgContainer.append("g")
+    .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var myGroups = d3.map(dataset, function(d){return d.group;}).keys()
@@ -24,7 +24,7 @@ function d3HeatmapChart(dataset){
         .domain(myGroups)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 15)
+        .style("font-size", 12)
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickSize(0))
         .select(".domain").remove()
@@ -35,14 +35,14 @@ function d3HeatmapChart(dataset){
         .domain(myVars)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 15)
+        .style("font-size", 12)
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()
 
     // Build color scale
-    var myColor = d3.scaleSequential()
-        .interpolator(d3.interpolateInferno)
-        .domain([0,1])
+    var myColor = d3.scaleLinear()
+        .range(["#289c40", "#0e5b45", "#00221c"])
+        .domain([0.7, 0.85, 1])
 
     // create a tooltip
     var tooltip = d3.select("#heatmapChart")
