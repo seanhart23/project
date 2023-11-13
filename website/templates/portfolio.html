@@ -35,7 +35,16 @@
        <div>
          <h1 style="color: white">Canary Quant</h1>
          <h2 style="color: white">Financial Metrics</h2>
-         <p style="color: white">Return on Investment = %</p>
+         <div id="item">
+          <ul>
+                <p style="color: white">Return on Investment = {{ roi }}%</p>
+                <p style="color: white">Compound Annual Growth Rate = {{ annual_return }}%</p>
+                <p style="color: white">Sharpe Ratio = {{ sharpe_ratio }}</p>
+                <p style="color: white">Average Beta = {{ ave_beta }}</p>
+                <p style="color: white">Average Standard Deviation = {{ std }}</p>
+                <p style="color: white">Tracking Error =  {{ tracking_err }}</p>
+          </ul>
+      </div>
        </div>
        <div class="visualization">
         <div id="pieChart"></div>
