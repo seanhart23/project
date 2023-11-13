@@ -38,7 +38,7 @@ def hello_world():
        # calculate average beta
        user_covariance = CanaryFinancialCalculations.covariance(canary.comparing_portfolios_pct_chg, "Portfolio", "SPY")
        user_variance = CanaryFinancialCalculations.variance(canary.comparing_portfolios_pct_chg, "SPY")
-       user_avg_beta =  round(CanaryFinancialCalculations.beta(user_covariance, user_variance).mean(),2)
+       user_avg_beta =  round(CanaryFinancialCalculations.beta(user_covariance, user_variance).mean(),2)[0]
 
        # Calculate ave std
        user_std = round(CanaryFinancialCalculations.standard_deviation(canary.user_portfolio_pct_chg).mean(),2)[0]

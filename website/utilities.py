@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
 def calculate_percentage(val, total):
    """Calculates the percentage of a value over a total"""
    percent = np.round((np.divide(val, total) * 100), 2)

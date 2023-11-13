@@ -1,28 +1,16 @@
-from dotenv import load_dotenv
 import os
 import pandas as pd
 import alpaca_trade_api as tradeapi
 import numpy as np
-from datetime import date,timedelta
+from datetime import date,timedelta, datetime
     
 class Alpaca:
     def __init__(self) -> None:
-        # load environment variables
-        load_dotenv()
 
          # Set Alpaca API key and secret
         ALPACA_BASE_URL = 'https://paper-api.alpaca.markets'
-        ALPACA_API_KEY = os.environ.get('ALPACA_API_KEY')
-        ALPACA_SECRET_KEY = os.environ.get('ALPACA_SECRET_KEY')
-
-        # Create the Alpaca API object
-        self.api = tradeapi.REST(key_id=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY, base_url=ALPACA_BASE_URL, api_version='v2')
-        
-
-         # Set Alpaca API key and secret
-        ALPACA_BASE_URL = 'https://paper-api.alpaca.markets'
-        ALPACA_API_KEY = 'PK306FA7SFOSMY9LBUZ4'
-        ALPACA_SECRET_KEY = 'oNujbWMi3ZLrZuVggRN1DnZBLs38EJO00cwyOgsE'
+        ALPACA_API_KEY = 'PKY1WQKOQS3LU0FD379C'
+        ALPACA_SECRET_KEY = 'cA7lkkOK9rNV6yThD48TdqJhMVgbDY80fiYWR5Mr'
 
         # Create the Alpaca API object
         self.api = tradeapi.REST(key_id=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY, base_url=ALPACA_BASE_URL, api_version='v2')
@@ -34,8 +22,6 @@ class Alpaca:
         days_ago = pd.Timestamp(date.today() - timedelta(days = days_from_today), tz="America/New_York").isoformat()
         today = pd.Timestamp(date.today().isoformat(), tz="America/New_York").isoformat()
         
-        start_date = pd.Timestamp("2018-01-01", tz="America/New_York").isoformat()
-        end_date = pd.Timestamp("2023-01-01", tz="America/New_York").isoformat()
         # Set timeframe to "1Day" for Alpaca API
         timeframe = "1Day"
 

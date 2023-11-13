@@ -1,5 +1,4 @@
 import alpaca_trade_api as tradeapi
-from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -12,13 +11,11 @@ import os
 class CanaryFinancialCalculations:
 
     def __init__(self, user_input_tickers, start_date, end_date, initial_investment) -> None:
-        # load environment variables
-        load_dotenv()
 
          # Set Alpaca API key and secret
         ALPACA_BASE_URL = 'https://paper-api.alpaca.markets'
-        ALPACA_API_KEY = os.environ.get('ALPACA_API_KEY')
-        ALPACA_SECRET_KEY = os.environ.get('ALPACA_SECRET_KEY')
+        ALPACA_API_KEY = 'PKY1WQKOQS3LU0FD379C'
+        ALPACA_SECRET_KEY = 'cA7lkkOK9rNV6yThD48TdqJhMVgbDY80fiYWR5Mr'
 
         # Create the Alpaca API object
         self.api = tradeapi.REST(key_id=ALPACA_API_KEY, secret_key=ALPACA_SECRET_KEY, base_url=ALPACA_BASE_URL, api_version='v2')
@@ -39,9 +36,6 @@ class CanaryFinancialCalculations:
         self.benchmark_chg = self.benchmark_pct_chg(self.benchmark_df)
 
         self.comparing_portfolios_pct_chg = self.pct_change_comparison(self.user_portfolio_pct_chg, self.benchmark_chg)
-
-
-
 
     def portfolio_df(self, tickers, start, end, timeframe):
         df = self.api.get_bars(
