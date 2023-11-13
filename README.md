@@ -1,5 +1,5 @@
 <p align='center'>
-<img height='300' width='300' src='https://github.com/elliotwatt/project/blob/main/Canary Quant.jpg'>
+<img height='300' width='300' src='https://github.com/elliotwatt/project/blob/main/Canary Logo.png'>
 
 <h1>
 Canary Quant
