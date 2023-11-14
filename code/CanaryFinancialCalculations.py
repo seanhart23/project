@@ -165,7 +165,7 @@ class CanaryFinancialCalculations:
         return overlay
     
     def roi_chart(df, compare, percent):
-        chart = df.hvplot.bar(x=compare, y=percent, color='#289c40', title='Portfolio ROI vs. SPY ROI', ylabel='Percentage')
+        chart = df.hvplot.bar(x=compare, y=percent, color='#289c40', title="Portfolio ROI vs. Benchmark's ROI", ylabel='Percentage')
         chart.opts(bgcolor='#00221c')
         chart.opts(hooks=[lambda p, _: p.state.update(border_fill_color='#1d9371')])
         return chart
@@ -183,7 +183,7 @@ class CanaryFinancialCalculations:
     
     def beta_chart(df):
         formatter = DatetimeTickFormatter(months='%b %Y')
-        chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#289c40', legend='top', height=500, width=820, xformatter=formatter, )
+        chart = df.hvplot.line(x='Date', y='Beta', value_label='Beta', color='#289c40', legend='top', height=500, width=820, xformatter=formatter)
         chart.opts(bgcolor='#00221c')
         chart.opts(hooks=[lambda p, _: p.state.update(border_fill_color='#1d9371')])
         return chart
