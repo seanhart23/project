@@ -1,35 +1,69 @@
+@font-face {
+    font-family: 'Gotham-Lgt';
+    src: url('../fonts/Gotham/Gotham_Light/Gotham_Light.otf');
+}
+
+@font-face {
+    font-family: 'Gotham-Med';
+    src: url('../fonts/Gotham/Gotham_Medium/Gotham_Medium.otf');
+}
+
 body {
-    background: rgb(241, 240, 238);
+    background: rgb(0,34,28);
+    background: linear-gradient(135deg, rgba(0,34,28,1) 47%, rgba(18,91,69,1) 100%);
     color: rgb(15, 15, 11);
-}
-img {
-    border-radius: 30px;
-    width: 80%;
+    color: white;
+    font-family: 'Gotham-Lgt';
 }
 
-h1 {
-    font-size: 8vh;
-    padding-bottom: 3%;
+.btn {
+    background: #125b45;
+    border: 1px solid #00221c;
+    color: white;
+    width: 100%;
+    letter-spacing: 1px;
 }
 
-h2 {
-    font-size: 3vh;
-    padding-top: 3%;
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
-button {
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 15px 32px;
+.headline {
+    font-size: 24px;
+    text-shadow: 5px 5px 10px black;
+}
+
+.headline h1 {
+    font-size: 80px;
+    margin-top: 25px;
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
+.main {
+    flex-grow: 1;
+    max-width: 60%;
+    padding-top: 50px;
+}
+
+.security-form-container {
+    padding: 50px;
+    background: white;
+    border: 1px solid #125b45;
+    margin: 0px 50px;
+    box-shadow: 10px 10px 10px black;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.security-form-container label {
+    font-size: 20px;
+    color: black;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    background-color: #6f5c08;
-    border-radius: 30px;
+    padding-bottom: 15px;
+    font-family: 'Gotham-Med';
 }
-
-
-

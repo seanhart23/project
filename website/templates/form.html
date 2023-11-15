@@ -1,27 +1,27 @@
-<div style="text-align: center;">
-</div>
-
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
-<body style="background-color: #1d9371;"></body>
-
-<div class="image-container" style="text-align: center;">
-<img height="350" width="500" src="{{ url_for('static', filename='images/yessir.jpg') }}" class="center"/>
-</div>
-
-<header>
-<div style="text-align: center;">
-<h1>Discover the Power of your Investment</h1>
-<h2>Create a Portfolio</h2>
-</div>
-</header>
-
-<div style="text-align: center;">
-<form action="{{ url_for("hello_world")}}" method="post">
-    <p><label for="stocks">What stocks do you want in your portfolio?</label></p>
-    <p><input type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL"></p>
-    <p><button type="submit">Create</button></p>
-</div>
-</body>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+        <img src="../static/images/canarylogo.png" class="logo">
+        <div class="container">
+            <div class="main">
+                <div class="headline">
+                    <h1>Canary Quant</h1>
+                    Canary Quant is a portfolio and stock analysis software that provides investors with key financial metrics to inform their investment decisions.
+                </div>
+            </div>
+            <div class="main">
+                <div class="security-form-container">
+                    <form action="{{ url_for('hello_world') }}" method="post">
+                        <label for="stocks">Which stocks would you like to include in your portfolio?</label>
+                        <input class="form-control" type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL">
+                        <br>
+                        <button class="btn" type="submit">Build Portfolio</button>
+                    </form>
+                </div>
+            </div> 
+        </div>   
+    </body>
+</html>
