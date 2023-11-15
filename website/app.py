@@ -139,5 +139,4 @@ def get_correlation_heatmap_data():
 # ONLY USE BELOW ON LOCAL MACHINE
 
 if __name__ == "__main__":
-#    app.run(host='0.0.0.0', port=5000)
-   app.run()
+   app.run(host='0.0.0.0', port=5000)
