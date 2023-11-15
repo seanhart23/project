@@ -14,6 +14,8 @@ INITIAL_INVESTMENT = 10000
 TIME = 365*5 # all portfolio calculations will start 5 years back from the time the user inputs stock data
 TIMEFRAME = '1D' # all stock data from alpaca api will show a single datapoint for 1 day
 
+global weights
+
 @app.route('/', methods = ["GET", "POST"])
 def hello_world():
    # getting input with stocksname = in HTML form
@@ -111,8 +113,6 @@ def get_portfolio_roi_data():
 
 @app.route('/get_correlation_heatmap_data')
 def get_correlation_heatmap_data():
-    global weights
-    weights = (1/len(stocks_portfolio) * np.ones(len(stocks_portfolio))).tolist()
 
     custom_portfolio_closing = a.get_closing_data(days_from_today=365*5, tickers=stocks_portfolio)
     custom_daily_returns = a.get_daily_returns(custom_portfolio_closing, weights)
