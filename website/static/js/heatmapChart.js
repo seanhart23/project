@@ -54,6 +54,8 @@ function d3HeatmapChart(dataset){
         .style("border-width", "2px")
         .style("border-radius", "5px")
         .style("padding", "5px")
+        .style("z-index", "10")
+        .style("position", "absolute")
 
     // Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
@@ -65,7 +67,7 @@ function d3HeatmapChart(dataset){
     }
     var mousemove = function(d) {
         tooltip
-        .html("The exact value of<br>this cell is: " + d.value)
+        .html("The exact value of this cell is: " + d.value)
         .style("left", (d3.mouse(this)[0]+70) + "px")
         .style("top", (d3.mouse(this)[1]) + "px")
     }

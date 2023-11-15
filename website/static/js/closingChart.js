@@ -24,7 +24,8 @@ function d3ClosingChart(dataset){
     .attr("height", height + margin.top + margin.bottom)
     .style("background-color", "#a5e06c")
     const svg = svgContainer.append("g")        //Grouping the various SVG components  
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        
 
     var parseDate = d3.timeParse("%Y-%m-%d");
     var dates = [];

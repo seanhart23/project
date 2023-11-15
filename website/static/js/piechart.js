@@ -15,6 +15,8 @@ function d3PieChart(dataset, datasetClosingChart){
         .data([dataset])    //Binding the pie chart data
         .attr("width", width)
         .attr("height", height)
+        .attr('viewBox','0 0 ' + height + ' ' + width)
+        .attr('preserveAspectRatio', 'xMinYMin')
         .append("g")        //Grouping the various SVG components  
         .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")"); //Piechart tranformation and transition upon page loading
  
