@@ -111,6 +111,9 @@ def get_portfolio_roi_data():
 
 @app.route('/get_correlation_heatmap_data')
 def get_correlation_heatmap_data():
+    global weights
+    weights = (1/len(stocks_portfolio) * np.ones(len(stocks_portfolio))).tolist()
+
     custom_portfolio_closing = a.get_closing_data(days_from_today=365*5, tickers=stocks_portfolio)
     custom_daily_returns = a.get_daily_returns(custom_portfolio_closing, weights)
     
@@ -139,6 +142,4 @@ def get_correlation_heatmap_data():
 # ONLY USE BELOW ON LOCAL MACHINE
 
 if __name__ == "__main__":
-#    app.run(host='0.0.0.0', port=5000)
-   http_server = WSGIServer(('', 5000), app)
-   http_server.serve_forever()
+   app.run(host='0.0.0.0', port=5000)
