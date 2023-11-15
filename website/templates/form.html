@@ -5,23 +5,25 @@
     </head>
     <body>
         <img src="../static/images/canarylogo.png" class="logo">
-        <div class="container">
-            <div class="main">
-                <div class="headline">
-                    <h1>Canary Quant</h1>
-                    Canary Quant is a portfolio and stock analysis software that provides investors with key financial metrics to inform their investment decisions.
+        <div class="container main">
+            <div class="row">
+                <div class="col-7">
+                    <div class="headline">
+                        <h1>Canary Quant</h1>
+                        Canary Quant is a portfolio and stock analysis software that provides investors with key financial metrics to inform their investment decisions.
+                    </div>
                 </div>
+                <div class="col-5">
+                    <div class="security-form-container">
+                        <form action="{{ url_for('hello_world') }}" method="post">
+                            <label for="stocks">Which stocks would you like to include in your portfolio?</label>
+                            <input class="form-control" type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL">
+                            <br>
+                            <button class="btn" type="submit">Build Portfolio Report</button>
+                        </form>
+                    </div>
+                </div> 
             </div>
-            <div class="main">
-                <div class="security-form-container">
-                    <form action="{{ url_for('hello_world') }}" method="post">
-                        <label for="stocks">Which stocks would you like to include in your portfolio?</label>
-                        <input class="form-control" type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL">
-                        <br>
-                        <button class="btn" type="submit">Build Portfolio</button>
-                    </form>
-                </div>
-            </div> 
         </div>   
     </body>
 </html>

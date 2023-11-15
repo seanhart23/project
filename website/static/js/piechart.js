@@ -1,8 +1,8 @@
 function d3PieChart(dataset, datasetClosingChart){
     // Set up SVG dimensions and properties
     const margin = {top:10, right:10, bottom:10, left:10};
-    const width = 350 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom,
+    const width = 500,
+    height = 500,
     outerRadius = Math.min(width, height) / 2,
     innerRadius = outerRadius * .5;
     const color = d3.scaleOrdinal()
@@ -65,7 +65,7 @@ function d3PieChart(dataset, datasetClosingChart){
         .attr("dy", ".20em")
         .attr("text-anchor", "middle")
         .text("Your custom portfolio")
-        .attr("fill", "white")
+        .attr("fill", "black")
         .attr("class","title");   
  
     // Function to update barchart when a piechart slice is clicked
