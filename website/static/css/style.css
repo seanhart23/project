@@ -80,8 +80,8 @@ body {
     height: 125px;
     width: 125px;
     position: absolute;
-    top: 10px;
     left: 10px;
+    top: 0px;
 }
 
 .main {
