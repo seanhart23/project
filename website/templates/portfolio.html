@@ -7,7 +7,7 @@
    <title>Canary Quant</title>
    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-   <script src="https://d3js.org/d3.v5.min.js" async></script> 
+   <script src="https://d3js.org/d3.v5.min.js"></script> 
    <script>
        const pieChartDataUrl = "{{ url_for('get_piechart_data') }}";
        const closingChartDataUrl = "{{ url_for('get_closing_data') }}";
@@ -16,15 +16,15 @@
        const roiChartUrl = "{{ url_for('get_portfolio_roi_data') }}";
        const heatmapChartUrl = "{{ url_for('get_correlation_heatmap_data') }}";
    </script>
-   <script src="{{ url_for('static', filename='js/piechart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/closingChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/updateClosingChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/cumulativeReturnsChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/rollingBetaChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/roiChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/heatmapChart.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/index.js') }}" async></script>
-   <script src="{{ url_for('static', filename='js/roiResult.js') }}" async></script>
+   <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/closingChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/updateClosingChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/cumulativeReturnsChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/rollingBetaChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/roiChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/heatmapChart.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/roiResult.js') }}"></script>
  </head>
 
  <body>
@@ -100,8 +100,8 @@
    </div>
   </div> 
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" async></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" async></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" async></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  </body>
 </html>
