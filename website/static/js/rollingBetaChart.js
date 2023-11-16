@@ -10,7 +10,7 @@ function d3RollingBetaChart(dataset){
         return _;
     };
     // set the dimensions and margins of the graph
-    const margin = {top: 50, right: 30, bottom: 60, left: 60};
+    const margin = {top: 50, right: 30, bottom: 60, left: 70};
     let width = 800 - margin.left - margin.right;
     let height = 500 - margin.top - margin.bottom;
 
@@ -21,7 +21,6 @@ function d3RollingBetaChart(dataset){
     .append("svg")      //Injecting an SVG element
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style("background-color", "#a5e06c")
     const svg = svgContainer.append("g")        //Grouping the various SVG components  
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -57,7 +56,7 @@ function d3RollingBetaChart(dataset){
 
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
+        .attr("y", 10 - margin.left)
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .attr("class", "label")
@@ -83,7 +82,6 @@ function d3RollingBetaChart(dataset){
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
-        .style("text-decoration", "underline")  
         .text("Rolling Beta");
 
 

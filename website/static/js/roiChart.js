@@ -1,5 +1,5 @@
 //Set up SVG dimensions and properties
-const margin = {top: 10, right: 10, bottom: 40, left: 70},
+const margin = {top: 10, right: 10, bottom: 40, left: 20},
 width = 800 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom,
 barPadding = 10,
@@ -34,15 +34,13 @@ function d3RoiChart(datasetBarChart){
        .append('svg')
        .attr('width', width + margin.left + margin.right)
        .attr('height', height + margin.top + margin.bottom)
-       .style("background-color", "#a5e06c")
        .attr('id', 'barChartPlot');
 
     bar.append("text")
         .attr('x', (width + margin.left + margin.right)/2)
-        .attr('y', graph_misc.title + 10)
+        .attr('y', graph_misc.title + 20)
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
-        .style("text-decoration", "underline")  
         .text("Portfolio ROI (%)");
 
    const visualization = bar.append('g')
@@ -73,6 +71,7 @@ function d3RoiChart(datasetBarChart){
                return d.value+"%";
        })
        .attr("text-anchor", "middle")
+       .style("fill", "white")
 
        .attr("x", function(d, i) {
                return (i * (width / defaultBarChart.length)) + ((width / defaultBarChart.length - barPadding) / 2);

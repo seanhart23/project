@@ -22,7 +22,10 @@ function d3ClosingChart(dataset){
     .data([dataset])    //Binding the pie chart data
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style("background-color", "#a5e06c")
+    .style("background", "rgb(0,34,28)")
+    .style("background", "linear-gradient(135deg, rgba(0,34,28,1) 47%, rgba(18,91,69,1) 100%)")
+    .style("color", "white")
+    .style("font-family", "Gotham-Lgt")
     const svg = svgContainer.append("g")        //Grouping the various SVG components  
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
@@ -59,12 +62,12 @@ function d3ClosingChart(dataset){
     .call(d3.axisLeft(yScale));
 
     svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
-        .attr("x", 0 - (height / 2))
-        .attr("dy", "1em")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2.5))
+        // .attr("dy", "1em")
         .attr("class", "label")
         .style("text-anchor", "middle")
+        .style("font-size", "16px")
         .text("Closing Prices in USD for "+ default_stock)
 
     const line = d3.line()
@@ -77,7 +80,7 @@ function d3ClosingChart(dataset){
     .attr("class", "line")
     .attr("fill", "none")
     .attr("stroke", "#289c40")
-    .attr("stroke-width", 2.5)
+    .attr("stroke-width", 1.5)
     .attr("d", line);
 
  }

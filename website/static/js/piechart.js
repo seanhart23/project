@@ -61,12 +61,13 @@ function d3PieChart(dataset, datasetClosingChart){
         .attr("text-anchor", "middle")      //Position slice labels
         .attr("transform", function(d) { return "translate(" + innerArc.centroid(d) + ")"; }) //Positioning upon transition and transform
         .attr("fill", "white")
+        .style("cursor", "pointer")
         .text(function(d) { return d.data.category; }); // Append category name on slices
  
     visualization.append("svg:text") //Append the title of chart in the middle of the pie chart
         .attr("dy", ".20em")
         .attr("text-anchor", "middle")
-        .text("Your custom portfolio")
+        .text("Your Custom Portfolio")
         .attr("fill", "black")
         .attr("class","title");   
  

@@ -1,7 +1,7 @@
 function d3HeatmapChart(dataset){
 
     // set the dimensions and margins of the graph
-    var margin = {top: 80, right: 25, bottom: 30, left: 80},
+    var margin = {top: 80, right: 15, bottom: 30, left: 100},
     width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -101,7 +101,7 @@ function d3HeatmapChart(dataset){
     // Add title to graph
     svg.append("text")
             .attr("x", 0)
-            .attr("y", -50)
+            .attr("y", -40)
             .attr("text-anchor", "left")
             .style("font-size", "22px")
             .text("Correlation Heatmap");
