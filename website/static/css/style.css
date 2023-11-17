@@ -117,9 +117,10 @@ body {
 
 .report-container table {
     width: 95%;
-    margin: 50px 15px;
+    margin: 25px 15px;
     font-family: 'Gotham-Med', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
+    height: 75%;
 }
 
 .report-container table tr td {
@@ -148,6 +149,11 @@ body {
     padding-bottom: 15px;
     font-family: 'Gotham-Med';
     margin-bottom: 30px;
+}
+
+.tooltip-inner {
+    max-width: 500px!important;
+    margin: auto;
 }
 
 @media (min-width: 1200px) {
