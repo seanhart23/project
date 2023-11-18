@@ -12,6 +12,7 @@
                 <div class="col-lg-7 col-md-12">
                     <div class="headline">
                         <h1>Canary Quant</h1>
+                        <hr>
                         Canary Quant is a portfolio and stock analysis software that provides investors with key financial metrics to inform their investment decisions.
                     </div>
                 </div>
@@ -20,7 +21,8 @@
                         <form action="{{ url_for('hello_world') }}" method="post">
                             <label for="stocks">Which stocks would you like to include in your portfolio?</label>
                             <input class="form-control" type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL">
-                            <br>
+                            <small id="" class="form-text text-muted text-center">Input stock tickers only</small>
+                            <br><br>
                             <button class="btn" type="submit">Build Portfolio Report</button>
                         </form>
                     </div>

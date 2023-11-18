@@ -65,6 +65,11 @@ body {
     flex-grow: 1;
 }
 
+.form-text {
+    display: inline-block;
+    width:100%;
+}
+
 .headline {
     font-size: 24px;
     text-shadow: 5px 5px 10px black;
@@ -72,7 +77,7 @@ body {
 
 .headline h1 {
     font-size: 80px;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 .item {
@@ -99,7 +104,7 @@ body {
     height: 125px;
     width: auto;
     position: absolute;
-    left: 10px;
+    left: 0px;
     top: 0px;
 }
 
@@ -192,13 +197,52 @@ body {
     }
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 768px) {
+
+    body {
+        padding-top: 100px;
+    }
+
     .carousel-item {
         height: 400px;
     }
-    
+
+    .headline {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 22px;
+    }
+
+    .headline h1 {
+        font-size: 40px;
+        padding-bottom: 25px;
+    }
+
+    .logo {
+        height: 75px;
+    }
+
+    .main {
+        padding: 0px 25px 0px 25px;
+    }
+
+    .security-form-container {
+        width: 90%;
+        padding: 25px 15px 0px 15px;
+        margin: 25px auto;
+    }
+
+    .security-form-container label {
+        margin-bottom: 0px;
+        font-size: 18px;
+    }
+
     svg {
         width: 100%!important;
         height: auto;
     }
+
+
+
 }
+
