@@ -2,7 +2,7 @@ const urls = [
    pieChartDataUrl
    ];
 
-const urlsRest = [
+const urlRests = [
    pieChartDataUrl,
    closingChartDataUrl,
    cumulativeReturnsChartUrl,
@@ -18,7 +18,7 @@ function runPie(dataset) {
    d3PieChart(dataset[0], dataset[1]);
 };
 
-Promise.all(urlsRest.map(url => d3.json(url))).then(runRest);
+Promise.all(urlRests.map(urlRest => d3.json(urlRest))).then(runRest);
 
 function runRest(dataset) {
    d3ClosingChart(dataset[1]);
