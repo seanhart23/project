@@ -2,6 +2,8 @@ const urls = [
    pieChartDataUrl
    ];
 
+Promise.all(urls.map(url => d3.json(url))).then(runPie);
+
 const urlRests = [
    pieChartDataUrl,
    closingChartDataUrl,
@@ -11,14 +13,14 @@ const urlRests = [
    heatmapChartUrl
    ];
 
-Promise.all(urls.map(url => d3.json(url))).then(runPie);
-
-
 function runPie(dataset) {
    d3PieChart(dataset[0], dataset[1]);
+   Promise.all(urlRests.map(urlRest => d3.json(urlRest))).then(runRest);
+
 };
 
-Promise.all(urlRests.map(urlRest => d3.json(urlRest))).then(runRest);
+
+
 
 function runRest(dataset) {
    d3ClosingChart(dataset[1]);
