@@ -7,7 +7,7 @@ function d3PieChart(dataset, datasetClosingChart){
     innerRadius = outerRadius * .5;
     const color = d3.scaleOrdinal()
         .domain(d3.range(dataset.length))
-        .range(['#289c40', '#a5e06c', '#0e5b45', '#00221c', '#125b45']);
+        .range(['#289c40', '#a5e06c', '#0e5b45', '#00221c', '#125b45', "#7CFC00", "#32CD32", "#00FF00", "#228B22", "#008000", "#7FFF00", "#006400", "#ADFF2F", "#9ACD32", "#00FF7F", "#00FA9A", "#90EE90", "#98FB98", "#8FBC8F", "#3CB371"]);
  
     // Selecting the div with id pieChart on the index.html template file
     const visualization = d3.select('#pieChart')

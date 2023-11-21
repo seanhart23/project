@@ -21,7 +21,7 @@
                         <form action="{{ url_for('hello_world') }}" method="post">
                             <label for="stocks">Which stocks would you like to include in your portfolio?</label>
                             <input class="form-control" type="text" id="stocks" name="stockname" placeholder="AAPL, NFLX, AMD, GOOGL">
-                            <small id="" class="form-text text-muted text-center">Input stock tickers only</small>
+                            <small id="" class="form-text text-muted text-center">Input stock tickers only (Max of 20)</small>
                             <br><br>
                             <button class="btn" type="submit">Build Portfolio Report</button>
                         </form>
