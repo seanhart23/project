@@ -2,7 +2,7 @@ const urls = [
    pieChartDataUrl
    ];
 
-Promise.resolve(urls.map(url => d3.json(url))).then(runPie);
+Promise.all(urls.map(url => d3.json(url))).then(runPie);
 
 const urlRests = [
    pieChartDataUrl,
