@@ -1,7 +1,4 @@
-//Set up SVG dimensions and properties
-const margin = {top: 10, right: 10, bottom: 40, left: 20},
-width = 800 - margin.left - margin.right,
-height = 500 - margin.top - margin.bottom,
+
 barPadding = 10,
 graph_misc = {ylabel: 4, xlabelH : 5, title:9};
 
@@ -21,6 +18,14 @@ function get_percentage(group, datasetBarChart){
 function d3RoiChart(datasetBarChart){
    defaultBarChart = get_percentage(group, datasetBarChart);
 
+    var containerWidth = $(".chart").width();
+    var containerHeight = $(".chart").height();
+
+    // set the dimensions and margins of the graph
+    const margin = {top: 50, right: 10, bottom: 40, left: 30};
+    var width = containerWidth - margin.left - margin.right;
+    var height = containerHeight - margin.top - margin.bottom;
+
    const xScale = d3.scaleLinear()     // Barchart X axis scale
        .domain([0, defaultBarChart.length]) // Scale range from 0 to the length of data object
        .range([0, width]);
@@ -32,8 +37,8 @@ function d3RoiChart(datasetBarChart){
    // // Selecting the div with id barChart on the index.html template file
    const bar = d3.select('#barChart')
        .append('svg')
-       .attr('width', width + margin.left + margin.right)
-       .attr('height', height + margin.top + margin.bottom)
+       .attr("width", containerWidth)
+       .attr("height", containerHeight)
        .attr('id', 'barChartPlot');
 
     bar.append("text")

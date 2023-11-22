@@ -1,4 +1,5 @@
 function d3CumulativeReturnsChart(dataset){
+
     function get_grouped_data(group, dataset){
         const _ = [];
         for (let obj of dataset){
@@ -8,11 +9,14 @@ function d3CumulativeReturnsChart(dataset){
         }
         return _;
     };
+    
+    var containerWidth = $(".chart").width();
+    var containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
     const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    let width = 800 - margin.left - margin.right;
-    let height = 500 - margin.top - margin.bottom;
+    var width = containerWidth - margin.left - margin.right;
+    var height = containerHeight - margin.top - margin.bottom;
 
     custom_dataset = get_grouped_data('Your Portfolio', dataset);
     spy_dataset = get_grouped_data('SPY', dataset);
@@ -20,8 +24,8 @@ function d3CumulativeReturnsChart(dataset){
     // append the svg object to the body of the page
     const svgContainer = d3.select("#cumulativeReturnsChart")
     .append("svg")      //Injecting an SVG element
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", containerWidth)
+    .attr("height", containerHeight)
     const svg = svgContainer.append("g")        //Grouping the various SVG components  
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -96,5 +100,8 @@ function d3CumulativeReturnsChart(dataset){
     svg.append("circle").attr("cx",110).attr("cy",60).attr("r", 6).style("fill", "#0e5b45")
     svg.append("text").attr("x", 130).attr("y", 30).text("Your Portfolio").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", 130).attr("y", 60).text("SPY").style("font-size", "15px").attr("alignment-baseline","middle")
+}
 
- }
+
+
+

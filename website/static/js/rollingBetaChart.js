@@ -9,18 +9,21 @@ function d3RollingBetaChart(dataset){
         }
         return _;
     };
+    var containerWidth = $(".chart").width();
+    var containerHeight = $(".chart").height();
+
     // set the dimensions and margins of the graph
-    const margin = {top: 50, right: 30, bottom: 60, left: 70};
-    let width = 800 - margin.left - margin.right;
-    let height = 500 - margin.top - margin.bottom;
+    const margin = {top: 50, right: 30, bottom: 60, left: 80};
+    var width = containerWidth - margin.left - margin.right;
+    var height = containerHeight - margin.top - margin.bottom;
 
     dataset = get_grouped_data('Beta', dataset);
 
     // append the svg object to the body of the page
     const svgContainer = d3.select("#rollingBetaChart")
     .append("svg")      //Injecting an SVG element
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", containerWidth)
+    .attr("height", containerHeight)
     const svg = svgContainer.append("g")        //Grouping the various SVG components  
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

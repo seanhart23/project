@@ -1,8 +1,9 @@
 function d3PieChart(dataset, datasetClosingChart){
+    var containerHeight = $("#pieChart").height();
     // Set up SVG dimensions and properties
     const margin = {top:10, right:10, bottom:10, left:10};
-    const width = 500,
-    height = 500,
+    const width = containerHeight,
+    height = containerHeight,
     outerRadius = Math.min(width, height) / 2,
     innerRadius = outerRadius * .5;
     const color = d3.scaleOrdinal()

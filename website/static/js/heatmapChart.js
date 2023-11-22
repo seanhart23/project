@@ -1,15 +1,17 @@
 function d3HeatmapChart(dataset){
-
+    var containerWidth = $(".chart").width();
+    var containerHeight = $(".chart").height();
+    
     // set the dimensions and margins of the graph
-    var margin = {top: 80, right: 15, bottom: 30, left: 100},
-    width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    var margin = {top: 80, right: 15, bottom: 30, left: 100}
+    var width = containerWidth - margin.left - margin.right;
+    var height = containerHeight - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svgContainer = d3.select("#heatmapChart")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", containerWidth)
+    .attr("height", containerHeight)
     .style("background-color", "#a5e06c")
     var svg = svgContainer.append("g")
     .attr("transform","translate(" + margin.left + "," + margin.top + ")");

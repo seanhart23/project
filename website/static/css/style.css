@@ -27,43 +27,6 @@ body {
     letter-spacing: 1px;
 }
 
-.carousel {
-    height: 100%;
-    min-height: 100%;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.carousel-item {
-    height: 570px;
-}
-
-.carousel-control-next, .carousel-control-prev {
-    filter: invert(100%);
-    width: 10%;
-    z-index: 3;
-}
-
-.chart {
-    height: 570px;
-    padding-top: 25px;
-    justify-content: middle;
-}
-
-.chart svg {
-    box-shadow: 5px 5px 5px 0px black;
-    background: rgb(0,34,28);
-    background: linear-gradient(135deg, rgba(0,34,28,1) 47%, rgba(18,91,69,1) 100%);
-    z-index: 3;
-    position: relative;
-}
-
-.chart svg text {
-    color: white!important;
-    fill: white;
-    font-family: "Gotham-LGT";
-}
-
 .data {
     flex-grow: 1;
 }
@@ -92,17 +55,6 @@ body {
     flex-basis: auto;
 }
 
-.loading {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background: rgba(250,250,250,1);
-    z-index: 1;
-    padding-top: 200px;
-    text-align: center;
-    border-radius: 5px;
-}
-
 .logo {
     height: 100px;
     width: auto;
@@ -116,10 +68,6 @@ body {
     animation: fadeIn 4s 0s, slideUp 1s 0s;
     animation-fill-mode:forwards;  
     opacity: 0;
-}
-
-#pieChart {
-    margin-top: 30px;
 }
 
 .progress {
@@ -140,7 +88,7 @@ body {
     border: 1px solid #b0da5c;
     border-radius: 5px;
     width: 100%;
-    height: auto;
+    /* height: 80vh; */
     color: black;
     /* padding: 15px 15px 30px 15px; */
     box-shadow: 10px 10px 10px black;
@@ -207,11 +155,8 @@ body {
 @media only screen and (max-width: 768px) {
 
     body {
-        padding-top: 100px;
-    }
-
-    .carousel-item {
-        height: 400px;
+        padding-top: 0px;
+        /* min-height: 100vh; */
     }
 
     .headline {
@@ -233,6 +178,21 @@ body {
         padding: 0px 25px 0px 25px;
     }
 
+    .report-container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .report-container table {
+        margin: auto;
+        width: 100%;
+    }
+
+    .report-header {
+        font-size: 22px;
+        font-family: "Gotham-Med";
+    }
+
     .security-form-container {
         width: 90%;
         padding: 25px 15px 0px 15px;
@@ -242,11 +202,6 @@ body {
     .security-form-container label {
         margin-bottom: 0px;
         font-size: 18px;
-    }
-
-    svg {
-        width: 100%!important;
-        height: auto;
     }
 
 }
@@ -259,4 +214,75 @@ body {
 @keyframes slideUp {
     0% { margin-top: 200px; }
     100% { margin-top: 100px;}
+}
+
+
+/** CHART LAYOUT **/
+
+.carousel {
+    text-align: center;
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.carousel-item table tr td {
+    vertical-align: middle;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+    z-index: 3;
+    width: 7%;
+}
+
+.chart {
+    width: 86%;
+    aspect-ratio: 15/9;
+    justify-content: center;
+    margin: auto;
+}
+
+.chart svg {
+    box-shadow: 5px 5px 5px 0px black;
+    background: rgb(0,34,28);
+    background: linear-gradient(135deg, rgba(0,34,28,1) 47%, rgba(18,91,69,1) 100%);
+    z-index: 3;
+    position: relative;
+    max-width: 100%!important;
+}
+
+.chart svg text {
+    color: white!important;
+    fill: white;
+    font-family: "Gotham-LGT";
+    font-size: 1em;
+}
+
+.loading {
+    height: 100%;
+    width: 86%;
+    position: absolute;
+    background: rgba(250,250,250,1);
+    z-index: 1;
+    padding-top: 100px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#pieChart {
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+#pieChart svg {
+    z-index: 3;
+    position: relative;
+    max-width: 100%!important;
 }
