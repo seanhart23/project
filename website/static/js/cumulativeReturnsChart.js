@@ -14,8 +14,8 @@ function d3CumulativeReturnsChart(dataset){
     var containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
-    // const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    const margin = {top: parseInt($(".padding").css("marginTop")), right: parseInt($(".padding").css("marginRight")), bottom: parseInt($(".padding").css("marginBottom")), left: parseInt($(".padding").css("marginLeft"))};
+    const margin = {top: 50, right: 30, bottom: 60, left: 80};
+    // const margin = {top: parseInt($(".padding").css("marginTop")), right: parseInt($(".padding").css("marginRight")), bottom: parseInt($(".padding").css("marginBottom")), left: parseInt($(".padding").css("marginLeft"))};
     const width = containerWidth - margin.right - margin.left;
     const height = containerHeight - margin.top - margin.bottom;
 

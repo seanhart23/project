@@ -27,6 +27,20 @@ body {
     letter-spacing: 1px;
 }
 
+.contact {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 25px;
+}
+
+.contact a {
+    color: white;
+}
+
 .data {
     flex-grow: 1;
 }
@@ -168,14 +182,13 @@ body {
         margin-top: 50px;
     }
 
-    /* svg {
-        padding: 10px 10px 0px 20px!important;
-        width: auto!important;
-    } */
-
-    .chart svg text {
-        font-size: 7px!important;
+    .chart {
+        zoom: 50%;
     }
+
+    /* .chart svg text {
+        zoom: 25%
+    } */
 
     .headline {
         text-align: center;
@@ -197,11 +210,15 @@ body {
     }
 
     .padding {
-        margin: 30px 10px 30px 60px!important;
+        /* margin: 30px 10px 30px 60px!important; */
     }
 
     .paddingBeta {
-        margin: 30px 10px 40px 40px!important;
+        /* margin: 30px 10px 40px 40px!important; */
+    }
+
+    #pieChart text {
+        font-size: 7px!important;
     }
 
     .report-container {

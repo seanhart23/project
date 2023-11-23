@@ -13,9 +13,8 @@ function d3RollingBetaChart(dataset){
     const containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
-    // const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    const margin = {top: parseInt($(".paddingBeta").css("marginTop")), right: parseInt($(".paddingBeta").css("marginRight")), bottom: parseInt($(".paddingBeta").css("marginBottom")), left: parseInt($(".paddingBeta").css("marginLeft"))};
-    console.log(margin)
+    const margin = {top: 50, right: 30, bottom: 60, left: 80};
+    // const margin = {top: parseInt($(".paddingBeta").css("marginTop")), right: parseInt($(".paddingBeta").css("marginRight")), bottom: parseInt($(".paddingBeta").css("marginBottom")), left: parseInt($(".paddingBeta").css("marginLeft"))};
     
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
