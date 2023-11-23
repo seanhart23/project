@@ -17,7 +17,6 @@ body {
     max-height: 100vh;
     min-height: 100vh;
     padding-top: 100px;
-    padding-bottom: 50px;
 }
 
 .btn, .btn:hover {
@@ -185,6 +184,10 @@ body {
         zoom: 50%;
     }
 
+    .contact {
+        top: 5px;
+        right: 20px;
+    }
     /* .chart svg text {
         zoom: 25%
     } */
