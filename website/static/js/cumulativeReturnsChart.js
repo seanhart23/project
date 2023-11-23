@@ -14,9 +14,10 @@ function d3CumulativeReturnsChart(dataset){
     var containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
-    const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    var width = containerWidth - margin.left - margin.right;
-    var height = containerHeight - margin.top - margin.bottom;
+    // const margin = {top: 50, right: 30, bottom: 60, left: 80};
+    const margin = {top: parseInt($(".padding").css("marginTop")), right: parseInt($(".padding").css("marginRight")), bottom: parseInt($(".padding").css("marginBottom")), left: parseInt($(".padding").css("marginLeft"))};
+    const width = containerWidth - margin.right - margin.left;
+    const height = containerHeight - margin.top - margin.bottom;
 
     custom_dataset = get_grouped_data('Your Portfolio', dataset);
     spy_dataset = get_grouped_data('SPY', dataset);
@@ -26,7 +27,9 @@ function d3CumulativeReturnsChart(dataset){
     .append("svg")      //Injecting an SVG element
     .attr("width", containerWidth)
     .attr("height", containerHeight)
-    const svg = svgContainer.append("g")        //Grouping the various SVG components  
+    const svg = svgContainer.append("g")   
+    .attr("width", containerWidth)
+    .attr("height", containerHeight)     //Grouping the various SVG components  
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -88,7 +91,7 @@ function d3CumulativeReturnsChart(dataset){
      .attr("d", line);
 
      svg.append("text")
-        .attr("x", (width / 2))             
+        .attr("x", ((width - margin.left) / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
@@ -96,10 +99,10 @@ function d3CumulativeReturnsChart(dataset){
 
 
     // Handmade legend
-    svg.append("circle").attr("cx",110).attr("cy",30).attr("r", 6).style("fill", "#289c40")
-    svg.append("circle").attr("cx",110).attr("cy",60).attr("r", 6).style("fill", "#0e5b45")
-    svg.append("text").attr("x", 130).attr("y", 30).text("Your Portfolio").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 130).attr("y", 60).text("SPY").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",50).attr("cy",30).attr("r", 6).style("fill", "#289c40")
+    svg.append("circle").attr("cx",50).attr("cy",60).attr("r", 6).style("fill", "#0e5b45")
+    svg.append("text").attr("x", 70).attr("y", 30).text("Your Portfolio").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 70).attr("y", 60).text("SPY").style("font-size", "15px").attr("alignment-baseline","middle")
 }
 
 

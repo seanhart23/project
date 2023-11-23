@@ -105,12 +105,16 @@
                       <td>
                         <div id="cumulativeReturnsChart" class="chart">                        
                           <!-- Progress Bar -->
-                            <div class="loading">
-                              Generating Cumulative Returns Chart<br><br>
-                              <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                              </div>
-                            </div>
+                          <table class="loading">
+                            <tr>
+                              <td>
+                                  Generating Cumulative Returns Chart<br><br>
+                                  <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                  </div>
+                              </td>
+                            </tr>
+                          </table>
                           <!-- End Progress Bar-->
                         </div>
                       </td>
@@ -123,12 +127,16 @@
                       <td>
                         <div id="rollingBetaChart" class="chart">
                             <!-- Progress Bar -->
-                            <div class="loading">
-                              Generating Rolling Beta Chart<br><br>
-                              <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                              </div>
-                            </div>
+                            <table class="loading">
+                              <tr>
+                                <td>
+                                    Generating Rolling Beta Chart<br><br>
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                    </div>
+                                </td>
+                              </tr>
+                            </table>
                           <!-- End Progress Bar-->
                         </div>
                       </td>
@@ -141,12 +149,16 @@
                       <td>
                         <div id="barChart" class="chart">
                             <!-- Progress Bar -->
-                              <div class="loading">
-                                Generating Return on Investment Chart<br><br>
-                                <div class="progress">
-                                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                                </div>
-                              </div>
+                            <table class="loading">
+                              <tr>
+                                <td>
+                                    Generating Return on Investment Chart<br><br>
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                    </div>
+                                </td>
+                              </tr>
+                            </table>
                             <!-- End Progress Bar-->
                         </div>
                       </td>
@@ -159,12 +171,16 @@
                       <td>
                         <div id="heatmapChart" class="chart">
                           <!-- Progress Bar -->
-                            <div class="loading">
-                              Generating Heat Map<br><br>
-                              <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                              </div>
-                            </div>
+                          <table class="loading">
+                            <tr>
+                              <td>
+                                  Generating Heat Map<br><br>
+                                  <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                  </div>
+                              </td>
+                            </tr>
+                          </table>
                           <!-- End Progress Bar-->
                       </div>
                       </td>
@@ -188,6 +204,10 @@
    </div>
   </div> 
 </div>
+<div class="padding"></div>
+<div class="paddingBeta"></div>
+<div class="paddingHeat"></div>
+
 <script src="{{ url_for('static', filename='js/designscripts.js') }}"></script>
     </body>
 </html>

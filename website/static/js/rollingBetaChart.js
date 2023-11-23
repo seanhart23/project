@@ -9,13 +9,16 @@ function d3RollingBetaChart(dataset){
         }
         return _;
     };
-    var containerWidth = $(".chart").width();
-    var containerHeight = $(".chart").height();
+    const containerWidth = $(".chart").width();
+    const containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
-    const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    var width = containerWidth - margin.left - margin.right;
-    var height = containerHeight - margin.top - margin.bottom;
+    // const margin = {top: 50, right: 30, bottom: 60, left: 80};
+    const margin = {top: parseInt($(".paddingBeta").css("marginTop")), right: parseInt($(".paddingBeta").css("marginRight")), bottom: parseInt($(".paddingBeta").css("marginBottom")), left: parseInt($(".paddingBeta").css("marginLeft"))};
+    console.log(margin)
+    
+    const width = containerWidth - margin.left - margin.right;
+    const height = containerHeight - margin.top - margin.bottom;
 
     dataset = get_grouped_data('Beta', dataset);
 
@@ -81,7 +84,7 @@ function d3RollingBetaChart(dataset){
 
 
      svg.append("text")
-        .attr("x", (width / 2))             
+        .attr("x", ((width - margin.left) / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 

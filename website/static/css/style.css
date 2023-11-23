@@ -140,6 +140,11 @@ body {
     margin-bottom: 30px;
 }
 
+/* svg {
+    padding: 20px 20px 20px 40px!important;
+    width: auto!important;
+} */
+
 .tooltip-inner {
     max-width: 200px!important;
     /* margin-left: 150px; */
@@ -157,6 +162,19 @@ body {
     body {
         padding-top: 0px;
         /* min-height: 100vh; */
+    }
+
+    .carousel {
+        margin-top: 50px;
+    }
+
+    /* svg {
+        padding: 10px 10px 0px 20px!important;
+        width: auto!important;
+    } */
+
+    .chart svg text {
+        font-size: 7px!important;
     }
 
     .headline {
@@ -178,6 +196,14 @@ body {
         padding: 0px 25px 0px 25px;
     }
 
+    .padding {
+        margin: 30px 10px 30px 60px!important;
+    }
+
+    .paddingBeta {
+        margin: 30px 10px 40px 40px!important;
+    }
+
     .report-container {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -186,10 +212,21 @@ body {
     .report-container table {
         margin: auto;
         width: 100%;
+        font-size: 14px;
+    }
+
+    .report-container table tr td {
+        padding: 5px;
+    }
+
+    .report-data {
+        font-size: 14px;
     }
 
     .report-header {
-        font-size: 22px;
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
         font-family: "Gotham-Med";
     }
 
@@ -242,9 +279,10 @@ body {
 
 .chart {
     width: 86%;
-    aspect-ratio: 15/9;
+    aspect-ratio: 16/9;
     justify-content: center;
     margin: auto;
+    position: relative;
 }
 
 .chart svg {
@@ -260,18 +298,35 @@ body {
     color: white!important;
     fill: white;
     font-family: "Gotham-LGT";
-    font-size: 1em;
+}
+
+.domain {
+    stroke: white;
 }
 
 .loading {
-    height: 100%;
-    width: 86%;
+    height: 100%!important;
+    width: 100%!important;
+    margin: 0px!important;
     position: absolute;
     background: rgba(250,250,250,1);
     z-index: 1;
-    padding-top: 100px;
+    /* padding-top: 100px; */
     text-align: center;
     border-radius: 5px;
+    vertical-align: middle;
+}
+
+.padding {
+    margin: 50px 30px 40px 90px;
+}
+
+.paddingBeta {
+    margin: 50px 30px 60px 50px;
+}
+
+.paddingHeat {
+    margin: 80px 30px 40px 100px; 
 }
 
 #pieChart {

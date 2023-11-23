@@ -3,7 +3,9 @@ function d3HeatmapChart(dataset){
     var containerHeight = $(".chart").height();
     
     // set the dimensions and margins of the graph
-    var margin = {top: 80, right: 15, bottom: 30, left: 100}
+    // var margin = {top: 80, right: 15, bottom: 30, left: 100}
+    const margin = {top: parseInt($(".paddingHeat").css("marginTop")), right: parseInt($(".paddingHeat").css("marginRight")), bottom: parseInt($(".paddingHeat").css("marginBottom")), left: parseInt($(".paddingHeat").css("marginLeft"))};
+
     var width = containerWidth - margin.left - margin.right;
     var height = containerHeight - margin.top - margin.bottom;
 
