@@ -13,8 +13,7 @@ function d3RollingBetaChart(dataset){
     const containerHeight = $(".chart").height();
 
     // set the dimensions and margins of the graph
-    const margin = {top: 50, right: 30, bottom: 60, left: 80};
-    // const margin = {top: parseInt($(".paddingBeta").css("marginTop")), right: parseInt($(".paddingBeta").css("marginRight")), bottom: parseInt($(".paddingBeta").css("marginBottom")), left: parseInt($(".paddingBeta").css("marginLeft"))};
+    const margin = {top: 50, right: 30, bottom: 60, left: 40};
     
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
@@ -59,14 +58,14 @@ function d3RollingBetaChart(dataset){
     .attr("class","myYaxis")
     .call(d3.axisLeft(yScale));
 
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 10 - margin.left)
-        .attr("x", 0 - (height / 2))
-        .attr("dy", "1em")
-        .attr("class", "label")
-        .style("text-anchor", "middle")
-        .text("USD");
+    // svg.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", 10 - margin.left)
+    //     .attr("x", 0 - (height / 2))
+    //     .attr("dy", "1em")
+    //     .attr("class", "label")
+    //     .style("text-anchor", "middle")
+    //     .text("USD");
 
     const line = d3.line()
     .x(function(d) { return xScale(parseDate(d.date)); })
